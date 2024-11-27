@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property int $pid
@@ -23,10 +26,10 @@ namespace App\Model;
  * @property string $redirect
  * @property int $always_show
  * @property int $index
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
- * @property \Hyperf\Database\Model\Collection|self[] $children
+ * @property Collection|self[] $children
  */
 class AdminMenu extends BaseModel
 {

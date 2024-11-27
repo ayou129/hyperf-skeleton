@@ -27,7 +27,7 @@ class ServiceException extends HttpException
         $http_code = 200,
         $response_data = [],
         $custom_msg = '',
-        Throwable $previous = null
+        ?Throwable $previous = null
     ) {
         $this->response_data = $response_data;
         if (! $custom_msg) {

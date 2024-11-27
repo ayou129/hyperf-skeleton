@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property string $username
@@ -19,10 +22,10 @@ namespace App\Model;
  * @property string $nickname
  * @property string $avatar
  * @property string $remember_token
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
- * @property AdminGroupRelation[]|\Hyperf\Database\Model\Collection $groups
+ * @property AdminGroupRelation[]|Collection $groups
  */
 class Admin extends BaseModel
 {

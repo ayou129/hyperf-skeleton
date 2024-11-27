@@ -12,6 +12,7 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
 use Hyperf\Database\Model\Model;
 
 // use App\Service\Utils\Redis\PlaywReport\McUserPlatform;
@@ -24,8 +25,8 @@ use Hyperf\Database\Model\Model;
  * @property string $wx_session_key
  * @property string $login_token
  * @property string $login_token_expire_time
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property mixed $user
  */

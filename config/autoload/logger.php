@@ -9,17 +9,29 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Monolog\Formatter\LineFormatter;
+use Monolog\Handler\StreamHandler;
+use Monolog\Level;
+
+/*
+ * This file is part of Hyperf.
+ *
+ * @see     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 return [
     'default' => [
         'handlers' => [
             [
-                'class' => Monolog\Handler\StreamHandler::class,
+                'class' => StreamHandler::class,
                 'constructor' => [
                     'stream' => BASE_PATH . '/runtime/logs/error.log',
-                    'level' => Monolog\Level::Warning,
+                    'level' => Level::Warning,
                 ],
                 'formatter' => [
-                    'class' => Monolog\Formatter\LineFormatter::class,
+                    'class' => LineFormatter::class,
                     'constructor' => [
                         'format' => null,
                         'dateFormat' => 'Y-m-d H:i:s',
@@ -32,13 +44,13 @@ return [
     'sql' => [
         'handlers' => [
             [
-                'class' => Monolog\Handler\StreamHandler::class,
+                'class' => StreamHandler::class,
                 'constructor' => [
                     'stream' => BASE_PATH . '/runtime/logs/sql.log',
-                    'level' => Monolog\Level::Debug,
+                    'level' => Level::Debug,
                 ],
                 'formatter' => [
-                    'class' => Monolog\Formatter\LineFormatter::class,
+                    'class' => LineFormatter::class,
                     'constructor' => [
                         'format' => null,
                         'dateFormat' => 'Y-m-d H:i:s',

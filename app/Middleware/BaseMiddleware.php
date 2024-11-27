@@ -14,8 +14,8 @@ namespace App\Middleware;
 
 use App\Utils\Tools;
 use Hyperf\Context\Context;
+use Hyperf\Contract\ConfigInterface;
 use Hyperf\Contract\TranslatorInterface;
-use Hyperf\Utils\ApplicationContext;
 use Psr\Container\ContainerInterface;
 use Psr\Http\Message\ResponseInterface;
 use Psr\Http\Message\ServerRequestInterface;
@@ -26,9 +26,15 @@ class BaseMiddleware implements MiddlewareInterface
 {
     protected ContainerInterface $container;
 
-    public function __construct(ContainerInterface $container)
+    protected ConfigInterface $config;
+
+    protected TranslatorInterface $translator;
+
+    public function __construct(ContainerInterface $container, ConfigInterface $config, TranslatorInterface $translator)
     {
         $this->container = $container;
+        $this->config = $config;
+        $this->translator = $translator;
     }
 
     public function process(ServerRequestInterface $request, RequestHandlerInterface $handler): ResponseInterface
@@ -38,16 +44,14 @@ class BaseMiddleware implements MiddlewareInterface
             // var_dump(date('Y-m-d H:i:s'), $params);
         }
         # 语言匹配
-        $container = ApplicationContext::getContainer();
-        $translator = $container->get(TranslatorInterface::class);
         $currentLang = $params['lang'] ?? 'zh_CN';
-        $allowLang = config('allow_lang', []);
+        $allowLang = $this->config->get('allow_lang', []);
         if (in_array(
             $currentLang,
             $allowLang,
             true
         )) {
-            $translator->setLocale($currentLang);
+            $this->translator->setLocale($currentLang);
         }
 
         # 为每一个请求增加一个qid
@@ -66,9 +70,9 @@ class BaseMiddleware implements MiddlewareInterface
         $executionMicroTime = bcsub((string) microtime(true), (string) Context::get('request_start_time'), 20);
         $executionSecond = bcdiv($executionMicroTime, '1000000', 20);
         $response = $response->withAddedHeader('Execution-Second', $executionSecond);
-        $response = $response->withAddedHeader('Server-Language', $translator->getLocale());
+        $response = $response->withAddedHeader('Server-Language', $this->translator->getLocale());
         $response = $response->withoutHeader('Server');
-        $response = $response->withAddedHeader('Server', config('app_name'));
+        $response = $response->withAddedHeader('Server', $this->config->get('app_name'));
         return $response->withAddedHeader('Request-Type', 'http');
     }
 

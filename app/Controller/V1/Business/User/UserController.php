@@ -16,6 +16,7 @@ use App\Amqp\Producer\CommonProducer;
 use App\Constant\ServiceCode;
 use App\Service\Business\User\UserService;
 use EasyWeChat\Factory;
+use EasyWeChat\Kernel\Exceptions\DecryptException;
 use Hyperf\Amqp\Producer;
 use Hyperf\Di\Annotation\Inject;
 use Hyperf\Snowflake\IdGeneratorInterface;
@@ -94,7 +95,7 @@ class UserController
 
         try {
             $decrypted_data = $app->encryptor->decryptData($result['session_key'], $request->iv, $request->encrypted_data);
-        } catch (\EasyWeChat\Kernel\Exceptions\DecryptException $e) {
+        } catch (DecryptException $e) {
             // throw new ServiceException([
             //     'msg' => '数据解密失败',
             // ]);

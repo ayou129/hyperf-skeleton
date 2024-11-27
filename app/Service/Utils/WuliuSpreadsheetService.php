@@ -14,6 +14,7 @@ namespace App\Service\Utils;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Style\Alignment;
 
 class WuliuSpreadsheetService extends SpreadsheetService
 {
@@ -62,8 +63,8 @@ class WuliuSpreadsheetService extends SpreadsheetService
     {
         $styleArray = [
             'alignment' => [
-                'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                'horizontal' => Alignment::HORIZONTAL_CENTER,
+                'vertical' => Alignment::VERTICAL_CENTER,
             ],
         ];
         $this->spreadsheet->getActiveSheet()->getStyle('A2:R2')->applyFromArray($styleArray);

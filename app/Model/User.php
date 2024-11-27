@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 // use App\Service\Utils\Redis\PlaywReport\McUser;
 // use App\Service\Utils\Redis\PlaywReport\ModelCacheTrait;
 /**
@@ -38,13 +41,13 @@ namespace App\Model;
  * @property int $social_charm_value
  * @property int $social_magnate_value
  * @property int $social_noble_value
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property mixed $birthday
  * @property mixed $social_id
  * @property null|UserPlatform $platform
- * @property null|\Hyperf\Database\Model\Collection|UserPlatform[] $platforms
+ * @property null|Collection|UserPlatform[] $platforms
  */
 class User extends BaseModel
 {

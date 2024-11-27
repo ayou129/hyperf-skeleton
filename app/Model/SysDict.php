@@ -12,14 +12,17 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property string $name
  * @property string $description
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
- * @property null|\Hyperf\Database\Model\Collection|SysDictDetail[] $details
+ * @property null|Collection|SysDictDetail[] $details
  */
 class SysDict extends BaseModel
 {

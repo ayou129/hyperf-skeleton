@@ -9,6 +9,8 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use App\Controller\BaseController;
+use App\Controller\TestController;
 use App\Controller\V1\Admin\AdminController;
 use App\Controller\V1\Admin\ConfigController;
 use App\Controller\V1\Admin\DeptController;
@@ -34,7 +36,7 @@ Router::get('/favicon.ico', function () {
 Router::get(
     '/',
     [
-        \App\Controller\BaseController::class,
+        BaseController::class,
         'index',
     ]
 );
@@ -42,7 +44,7 @@ Router::addGroup(
     '/test',
     function () {
         Router::get('/exception', [
-            \App\Controller\TestController::class,
+            TestController::class,
             'testException',
         ]);
     }

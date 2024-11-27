@@ -12,14 +12,16 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+
 /**
  * @property int $id
  * @property string $title
  * @property int $type
  * @property string $total_amount
  * @property int $status
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property mixed $type_text
  * @property mixed $status_text

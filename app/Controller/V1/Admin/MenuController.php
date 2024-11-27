@@ -19,6 +19,7 @@ use App\Model\SysMenu;
 use App\Model\SysUser;
 use App\Utils\Tools;
 use Hyperf\HttpServer\Annotation\AutoController;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * @AutoController
@@ -28,7 +29,7 @@ class MenuController extends AbstractController
 {
     /**
      * 主页list：默认获取pid为null的.
-     * @return \Psr\Http\Message\ResponseInterface
+     * @return ResponseInterface
      */
     public function create()
     {

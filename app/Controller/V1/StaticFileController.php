@@ -16,13 +16,15 @@ use App\Constant\ServiceCode;
 use App\Controller\AbstractController;
 use App\Exception\ServiceException;
 use Hyperf\HttpMessage\Stream\SwooleStream;
+use Psr\Http\Message\MessageInterface;
+use Psr\Http\Message\ResponseInterface;
 
 class StaticFileController extends AbstractController
 {
     /**
      * 获取图片.
      * @param mixed $filename
-     * @return \Psr\Http\Message\MessageInterface|\Psr\Http\Message\ResponseInterface
+     * @return MessageInterface|ResponseInterface
      */
     public function file($filename)
     {

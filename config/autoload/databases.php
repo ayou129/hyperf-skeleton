@@ -9,18 +9,30 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use Hyperf\Database\Commands\Ast\ModelRewriteKeyInfoVisitor;
+use Hyperf\Database\Commands\Ast\ModelRewriteSoftDeletesVisitor;
+use Hyperf\Database\Commands\Ast\ModelRewriteTimestampsVisitor;
+
+/*
+ * This file is part of Hyperf.
+ *
+ * @see     https://www.hyperf.io
+ * @document https://hyperf.wiki
+ * @contact  group@hyperf.io
+ * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
+ */
 use function Hyperf\Support\env;
 
 return [
     'default' => [
         'driver' => env('DB_DRIVER', 'mysql'),
         'host' => env('DB_HOST', 'localhost'),
-        'database' => env('DB_DATABASE', 'hyperf'),
         'port' => env('DB_PORT', 3306),
+        'database' => env('DB_DATABASE', 'hyperf'),
         'username' => env('DB_USERNAME', 'root'),
         'password' => env('DB_PASSWORD', ''),
-        'charset' => env('DB_CHARSET', 'utf8'),
-        'collation' => env('DB_COLLATION', 'utf8_unicode_ci'),
+        'charset' => env('DB_CHARSET', 'utf8mb4'),
+        'collation' => env('DB_COLLATION', 'utf8mb4_unicode_ci'),
         'prefix' => env('DB_PREFIX', ''),
         'pool' => [
             'min_connections' => 100,
@@ -39,9 +51,9 @@ return [
                 'uses' => '',
                 # App\Model\BaseModel
                 'visitors' => [
-                    Hyperf\Database\Commands\Ast\ModelRewriteKeyInfoVisitor::class,
-                    Hyperf\Database\Commands\Ast\ModelRewriteSoftDeletesVisitor::class,
-                    Hyperf\Database\Commands\Ast\ModelRewriteTimestampsVisitor::class,
+                    ModelRewriteKeyInfoVisitor::class,
+                    ModelRewriteSoftDeletesVisitor::class,
+                    ModelRewriteTimestampsVisitor::class,
                     // Hyperf\Database\Commands\Ast\ModelRewriteGetterSetterVisitor::class,
                     // Hyperf\Database\Commands\Ast\ModelUpdateVisitor::class,
                 ],

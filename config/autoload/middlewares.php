@@ -9,7 +9,10 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use App\Middleware\BaseMiddleware;
+use App\Middleware\CorsMiddleware;
 use App\Middleware\Sys\RequestMiddleware;
+use Hyperf\Validation\Middleware\ValidationMiddleware;
 
 /*
  * This file is part of Hyperf.
@@ -25,10 +28,10 @@ return [
         // Hyperf\SwooleTracker\Middleware\HttpServerMiddleware::class,
 
         RequestMiddleware::class,
-        App\Middleware\CorsMiddleware::class,
-        App\Middleware\BaseMiddleware::class,
+        CorsMiddleware::class,
+        BaseMiddleware::class,
         // App\Middleware\AuthMiddleware::class,
-        Hyperf\Validation\Middleware\ValidationMiddleware::class,
+        ValidationMiddleware::class,
         // Hyperf\Validation\Middleware\ValidationMiddleware::class,
     ],
 ];

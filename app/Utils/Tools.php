@@ -15,6 +15,7 @@ namespace App\Utils;
 use Exception;
 use Hyperf\Logger\Logger;
 use Hyperf\ModelCache\Config;
+use Hyperf\Redis\Redis;
 use Hyperf\Utils\ApplicationContext;
 use Illuminate\Support\Facades\Log;
 use LogicException;
@@ -24,7 +25,7 @@ class Tools
     public static function getRedis()
     {
         $container = ApplicationContext::getContainer();
-        return $container->get(\Hyperf\Redis\Redis::class);
+        return $container->get(Redis::class);
     }
 
     /**

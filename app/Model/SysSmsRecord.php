@@ -12,6 +12,8 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+
 /**
  * @property int $id
  * @property string $platform_id
@@ -21,8 +23,8 @@ namespace App\Model;
  * @property string $template
  * @property int $result_code
  * @property int $record_id
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  */
 class SysSmsRecord extends BaseModel

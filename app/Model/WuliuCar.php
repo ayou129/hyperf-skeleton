@@ -12,13 +12,15 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+
 /**
  * @property int $id
  * @property string $number
  * @property int $motorcade_id
  * @property int $driver_id
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property null|WuliuMotorcade $motorcade
  */

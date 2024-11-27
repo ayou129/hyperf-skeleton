@@ -9,7 +9,12 @@ declare(strict_types=1);
  * @contact  group@hyperf.io
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
+use App\Constant\ServiceCode;
+use App\Exception\ServiceException;
+use App\Model\Admin;
+use App\Model\User;
 use Hyperf\Utils\ApplicationContext;
+use HyperfExt\Jwt\Jwt;
 
 if (! function_exists('di')) {
     function di($id = null)
@@ -28,19 +33,19 @@ if (! function_exists('di')) {
 if (! function_exists('getLoginModel')) {
     function getLoginModel($type = 'user')
     {
-        $jwt = di(\HyperfExt\Jwt\Jwt::class);
+        $jwt = di(Jwt::class);
         $id = $jwt->getClaim('sub') ?? false;
         if (is_numeric($id)) {
             switch ($type) {
                 case 'user':
-                    return \App\Model\User::findFromCache($id)
+                    return User::findFromCache($id)
                         ->first();
                 default:
-                    return \App\Model\Admin::findFromCache($id)
+                    return Admin::findFromCache($id)
                         ->first();
             }
         }
-        throw new \App\Exception\ServiceException(\App\Constant\ServiceCode::ERROR_USER_NOT_EXISTS);
+        throw new ServiceException(ServiceCode::ERROR_USER_NOT_EXISTS);
     }
 }
 /*

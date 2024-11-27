@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property string $name
@@ -19,12 +22,12 @@ namespace App\Model;
  * @property int $sort
  * @property string $remark
  * @property int $status
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
- * @property null|\Hyperf\Database\Model\Collection|SysMenu[] $menus
+ * @property null|Collection|SysMenu[] $menus
  * @property null|SysUser $user
- * @property null|\Hyperf\Database\Model\Collection|SysDept[] $depts
+ * @property null|Collection|SysDept[] $depts
  */
 class SysRole extends BaseModel
 {

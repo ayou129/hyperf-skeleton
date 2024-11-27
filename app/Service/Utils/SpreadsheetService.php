@@ -13,7 +13,10 @@ declare(strict_types=1);
 namespace App\Service\Utils;
 
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Style\NumberFormat;
+use PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf;
 
 class SpreadsheetService
 {
@@ -46,7 +49,7 @@ class SpreadsheetService
         // 在单元格中设置日期和/或时间值
         // Get the current date/time and convert to an Excel date/time
         $dateTimeNow = time();
-        $excelDateValue = \PhpOffice\PhpSpreadsheet\Shared\Date::PHPToExcel($dateTimeNow);
+        $excelDateValue = Date::PHPToExcel($dateTimeNow);
         // Set cell A6 with the Excel date/time value
         $spreadsheet->getActiveSheet()->setCellValue(
             'A6',
@@ -56,7 +59,7 @@ class SpreadsheetService
         $spreadsheet->getActiveSheet()->getStyle('A6')
             ->getNumberFormat()
             ->setFormatCode(
-                \PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_DATETIME
+                NumberFormat::FORMAT_DATE_DATETIME
             );
 
         // 按坐标 获取 单元格值
@@ -88,7 +91,7 @@ class SpreadsheetService
     public function genPdf()
     {
         // Dompdf, Mpdf or Tcpdf (as appropriate)
-        $className = \PhpOffice\PhpSpreadsheet\Writer\Pdf\Dompdf::class;
+        $className = Dompdf::class;
         IOFactory::registerWriter('Pdf', $className);
     }
 

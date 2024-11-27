@@ -12,19 +12,22 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property string $name
  * @property int $sort
  * @property int $status
  * @property string $remark
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property bool|mixed $enabled
  * @property mixed $pid
- * @property null|\Hyperf\Database\Model\Collection|SysRole[] $roles
- * @property null|\Hyperf\Database\Model\Collection|SysUser[] $users
+ * @property null|Collection|SysRole[] $roles
+ * @property null|Collection|SysUser[] $users
  */
 class SysDept extends BaseModel
 {

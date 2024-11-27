@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property int $dept_id
@@ -27,13 +30,13 @@ namespace App\Model;
  * @property string $avatar_path
  * @property int $status
  * @property string $pwd_reset_time
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property bool|mixed $enabled
  * @property null|SysDept $dept
  * @property null|SysRole $role
- * @property null|\Hyperf\Database\Model\Collection|SysJob[] $jobs
+ * @property null|Collection|SysJob[] $jobs
  */
 class SysUser extends BaseModel
 {

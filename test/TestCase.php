@@ -10,13 +10,10 @@ declare(strict_types=1);
  * @license  https://github.com/hyperf/hyperf/blob/master/LICENSE
  */
 
-namespace App\Model;
+namespace Tests;
 
-use Hyperf\DbConnection\Model\Model as BaseModel;
-use Hyperf\ModelCache\Cacheable;
-use Hyperf\ModelCache\CacheableInterface;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
-abstract class Model extends BaseModel implements CacheableInterface
+abstract class TestCase extends BaseTestCase
 {
-    use Cacheable;
 }

@@ -12,6 +12,9 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+use Hyperf\Database\Model\Collection;
+
 /**
  * @property int $id
  * @property string $method
@@ -21,13 +24,13 @@ namespace App\Model;
  * @property int $u_id
  * @property string $exception_trace
  * @property string $exception_otherinfo
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property mixed $headers
  * @property mixed $user_agent
  * @property mixed $params
- * @property null|\Hyperf\Database\Model\Collection|SysRequestSql[] $sqls
+ * @property null|Collection|SysRequestSql[] $sqls
  */
 class SysRequest extends BaseModel
 {

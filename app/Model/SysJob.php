@@ -12,14 +12,16 @@ declare(strict_types=1);
 
 namespace App\Model;
 
+use Carbon\Carbon;
+
 /**
  * @property int $id
  * @property string $name
  * @property int $job_sort
  * @property string $create_by
  * @property string $update_by
- * @property \Carbon\Carbon $created_at
- * @property \Carbon\Carbon $updated_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
  * @property string $deleted_at
  * @property bool|mixed $enabled
  */
