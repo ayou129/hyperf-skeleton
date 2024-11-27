@@ -1,3 +1,19 @@
+## Init
+composer install
+
+## Run
+php bin/hyperf.php start
+
+## cs-fix
+composer cs-fix
+## 测试
+php bin/hyperf.php test
+
+
+
+
+
+
 # Introduction
 
 This is a skeleton application using the Hyperf framework. This application is meant to be used as a starting place for those looking to get their feet wet with Hyperf Framework.
@@ -53,7 +69,7 @@ cd path/to/install
 docker-compose up
 ```
 
-This will start the cli-server on port `9501`, and bind it to all network interfaces. You can then visit the site at `http://localhost:9501/` which will bring up Hyperf default home page.
+This will start the cli-server on port `9511`, and bind it to all network interfaces. You can then visit the site at `http://localhost:9511/` which will bring up Hyperf default home page.
 
 ## Hints
 
