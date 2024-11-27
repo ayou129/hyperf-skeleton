@@ -315,28 +315,3 @@ Router::addGroup(
     },
     ['middleware' => [AuthMiddleware::class]]
 );
-
-// ------------------------ Template -------
-// Router::addGroup(
-//     '/api/v1/admin/wuliu',
-//     function () {
-//         // ------------------------ SailSchedule -------
-//         Router::get('/api/model/list', [
-//             ModelController::class,
-//             'list',
-//         ]);
-//         Router::post('/api/sail_schedule', [
-//             ModelController::class,
-//             'post',
-//         ]);
-//         Router::put('/api/sail_schedule', [
-//             ModelController::class,
-//             'put',
-//         ]);
-//         Router::delete('/api/sail_schedule', [
-//             ModelController::class,
-//             'delete',
-//         ]);
-//     },
-//     // ['middleware' => [AuthMiddleware::class]]
-// );
