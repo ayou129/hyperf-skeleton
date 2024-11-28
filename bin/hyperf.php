@@ -15,7 +15,7 @@ use Hyperf\Di\ClassLoader;
 use Hyperf\Engine\DefaultOption;
 use Psr\Container\ContainerInterface;
 
-/**
+/*
  * This file is part of Hyperf.
  *
  * @see     https://www.hyperf.io

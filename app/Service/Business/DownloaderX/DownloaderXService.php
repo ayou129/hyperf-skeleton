@@ -62,6 +62,7 @@ class DownloaderXService
 
     private function getRequest($params)
     {
+        throw new \Exception();
         $targetUrl = 'https://pan.baidu.com//rest/2.0/xpan/file?method=list&access_token=' . $this->access_token; // 替换为实际的请求 URL
 
         // 将参数拼接成 URL 查询字符串

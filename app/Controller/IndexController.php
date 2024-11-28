@@ -11,13 +11,14 @@ declare(strict_types=1);
  */
 
 namespace App\Controller;
+
 use Hyperf\HttpServer\Annotation\Controller;
 use Hyperf\HttpServer\Annotation\RequestMapping;
 
 #[Controller]
 class IndexController extends AbstractController
 {
-    #[RequestMapping(path: "index", methods: "get,post")]
+    #[RequestMapping(path: 'index', methods: 'get,post')]
     public function index()
     {
         // $user = $this->request->input('user', 'Hyperf');

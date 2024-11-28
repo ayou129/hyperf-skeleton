@@ -33,6 +33,19 @@ CREATE TABLE `sys_config` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1002 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- ----------------------------
+-- Table structure for sys_error
+-- ----------------------------
+DROP TABLE IF EXISTS `sys_error`;
+CREATE TABLE `sys_error` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `error` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `deleted_at` timestamp NULL DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+-- ----------------------------
 -- Records of sys_config
 -- ----------------------------
 BEGIN;
