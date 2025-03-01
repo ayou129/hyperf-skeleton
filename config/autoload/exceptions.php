@@ -24,7 +24,6 @@ return [
     'handler' => [
         'http' => [
             // Hyperf\HttpServer\Exception\Handler\HttpExceptionHandler::class,
-            AppExceptionHandler::class,
             Handler::class,
         ],
     ],

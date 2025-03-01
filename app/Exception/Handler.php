@@ -28,6 +28,8 @@ use Psr\Http\Message\ResponseInterface;
 use Psr\Log\LoggerInterface;
 use RuntimeException;
 use Throwable;
+use function Hyperf\Translation\__;
+use App\Exception\ServiceException;
 
 class Handler extends ExceptionHandler
 {
@@ -66,7 +68,9 @@ class Handler extends ExceptionHandler
             case $throwable instanceof HttpException:
                 # hyperf http-message exception
                 # # 404...
-                $result['data'] = method_exists($throwable, 'getResponseData') ? $throwable->getResponseData() : [];
+                if ($throwable instanceof ServiceException) {
+                    $result['data'] = $throwable->getResponseData();
+                }
                 $httpCode = $throwable->getStatusCode() ?? $httpCode;
                 break;
             case $throwable instanceof RuntimeException:
