@@ -1,4 +1,4 @@
-## 文档
+## 基本使用
 ~~~bash
 composer install -o
 
@@ -12,4 +12,19 @@ composer dump-auto -o
 php bin/hyperf.php start
 
 # 开启debug
+~~~
+
+
+## 单元测试
+~~~bash
+# 单元测试用的 pestphp/pest
+
+# 创建测试文件
+php bin/hyperf.php gen:test BaseTest
+
+# 运行测试
+composer test
+
+
+
 ~~~
