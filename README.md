@@ -1,19 +1,3 @@
-## Init
-composer install
-
-## Run
-php bin/hyperf.php start
-
-## cs-fix
-composer cs-fix
-## 测试
-php bin/hyperf.php test
-
-
-
-
-
-
 # Introduction
 
 This is a skeleton application using the Hyperf framework. This application is meant to be used as a starting place for those looking to get their feet wet with Hyperf Framework.
