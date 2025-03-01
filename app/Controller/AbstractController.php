@@ -20,6 +20,7 @@ use Hyperf\HttpServer\Contract\ResponseInterface;
 use LogicException;
 use Psr\Container\ContainerInterface;
 use ReflectionClass;
+use function Hyperf\Translation\__;
 
 abstract class AbstractController
 {
