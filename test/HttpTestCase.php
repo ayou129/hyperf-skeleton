@@ -14,7 +14,7 @@ namespace HyperfTest;
 
 use Hyperf\Testing\Client;
 use PHPUnit\Framework\TestCase;
-
+use Swoole\Coroutine;
 use function Hyperf\Support\make;
 
 /**
@@ -40,6 +40,12 @@ abstract class HttpTestCase extends TestCase
 
     public function __call($name, $arguments)
     {
+        // 确保在协程环境中运行
+        if (!Coroutine::getCid()) {
+            $this->markTestSkipped('This test must run in a coroutine environment.');
+            return null;
+        }
+
         return $this->client->{$name}(...$arguments);
     }
 }
